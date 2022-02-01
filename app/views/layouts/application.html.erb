@@ -2,28 +2,71 @@
 <html>
   <head>
     <title>Potepanshare</title>
+    
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+ <body>
+    <header>
+      <div class="header-left">
+        <%= link_to root_path do %>
+          <img alt="サイトのロゴ画像" src="	https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png">
+        <% end %>
+        <div class="header-left">
+          <%= search_form_for @q_header, url: search_rooms_path do |f| %>
+            <%= f.search_field :name_cont, placeholder: "エリア" %>
+            <%= f.submit "エリア検索" %>
+          <% end %>
     
-  <% if flash[:notice] %>
-   <div class="noticeok">
-    <p class="notice"><%= notice %></p>
-   </div>
-   <% end %>
-   
-  <% if flash[:alert] %>
-   <div class="noticeno">
-    <p class="alert"><%= alert %></p>
-   </div>
-  <% end %>
-  
-  <%= yield %>
+          <%= search_form_for @q_header, url: search_rooms_path do |f| %>
+            <%= f.search_field :name_or_introduction_or_price_or_address_cont, placeholder: "キーワード" %>
+            <%= f.submit "キーワード検索" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="header-right">
+        <% if user_signed_in? %>
+          <div class="hidden_box">
+            <label for="label1">メニュー</label>
+            <input type="checkbox" id="label1"/>
+            <ul class="hidden_show" >
+              <li> <%= link_to "ルーム登録", new_room_path %></li>
+              <li><%= link_to "予約済みルーム一覧あとで実装", :rooms %></li>
+              <li><%= link_to "登録済みルーム一覧", :rooms%></li>
+              <li><%= link_to "設定", controller: "users", action: "show", id: current_user%></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "lbutton is-warning is-light" %></li>
+            </ul>
+          </div>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
+          <%= link_to "登録する", new_user_registration_path, class: "button is-warning is-light"%>
+        <% end %>
+      </div>
+    </header>
+    <p class="notice">
+      <% if flash[:notice] %>
+      <%= notice %>
+      <% end %>
+    </p>
+    <p class="alert">
+      <% if flash[:alert] %>
+      <%= alert %>
+      <% end %>
+    </p>
+    
+    <%= yield %>
+    
+    <footer>
+      <p>© 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
-</html>
+ </html>
+
+
+

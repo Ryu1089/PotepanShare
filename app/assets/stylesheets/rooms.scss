@@ -1,0 +1,92 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+table img {
+  width: 100%;
+  height: 360px;
+}
+
+.row {
+  display: flex;
+  padding-top: 100px;
+}
+
+.room {
+  border: 1px solid #eaedef;
+}
+
+.reserve {
+  position: relative;
+  padding: 20px;
+  border: 1px solid #eaedef;
+}
+
+table.row2 {
+  border-collapse: separate;
+  border-spacing: 0px 30px;
+}
+
+.row2 > th {
+  width: 100%;
+  display: block;
+}
+
+.row2 > td {
+  width: 100%;
+  display: block;
+}
+
+.row2 th {
+  text-align: left;
+}
+
+// table.row2 td {
+//   border: 1px solid #ced4da;
+// }
+
+.submit-btn {
+  margin-bottom: 10px;
+}
+
+.submit-btn input{
+  background-color: #4a90e2 !important;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.submit a {
+  text-decoration: none;
+  color: black;
+}
+
+.room-submit {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.new-room {
+  line-height: 40px;
+}
+
+.new-room td input {
+  width: 250px;
+  height: 30px;
+}
+.room-posts table, .reservations table {
+    min-width: 800px;
+}
+table {
+    border-collapse: collapse;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+center{
+  padding: 8px 15px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}

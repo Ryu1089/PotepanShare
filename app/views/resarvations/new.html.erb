@@ -1,0 +1,21 @@
+<div>
+  <h2>予約内容確認</h2>
+  <%=form_with model:@resarvation do |f| %>
+  
+  
+    <%= f.label :start, "開始日" %>
+    <%= f.text_field :start, :readoonly => true %>
+    <br>
+    <%= f.label :end, "終了日" %>
+    <%= f.text_field :end, :readonly => true %>
+    <br>
+    <p>人数：<%= f.number_field :people, :readonly => true %>名</p> 
+    <p>合計料金：<%= f.number_field :total_price, :readonly => true %>円</p>
+    
+    <p>上記内容でよろしければ「予約を確定」を押して下さい</p>
+    <ul class="submit">
+      <li class="submit-btn"><%= f.submit "予約を確定" %></li>
+      <li><%= link_to "ルーム詳細に戻る", @room %></li>
+    </ul>
+  <% end %>
+</div>

@@ -1,0 +1,49 @@
+<div class="container device">
+  <div class="device_frame">
+      <h1 class="title">
+      アカウント
+      </h1>
+
+      <table>
+        <tr>
+          <th>ユーザーアイコン</th>
+          <td><%= attachment_image_tag current_user, :image,:fill, 50, 50, fallback: "no-image.png", size: "100x100"  %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+       　  <td><%= current_user.email %></td>
+        </tr>
+        <tr>
+          <th>パスワード</th>
+          <td>**********</td>
+        </tr>
+        <tr>
+          <th>名前</th>
+          <td><%= current_user.username %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= current_user.email %></td>
+        </tr>
+        <tr>
+          <th>パスワード</th>
+          <td><%= current_user.password %></td>
+        </tr>
+      </table>
+      
+      <div>
+        <ul>
+          <li><%= link_to "編集する", edit_user_path(current_user), class: "edit-btn" %></li>
+        </ul>
+        <ul>
+          <li><%= link_to "ホームへ戻る", root_path, class: "back-btn" %></li>
+        </ul>
+      </div>
+     
+   </div>
+  </div>
+
+
+
+
+

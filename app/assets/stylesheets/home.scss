@@ -1,3 +1,210 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.top-wrapper {
+  background-image: url("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 650px;
+}
+
+.main-search {
+  flex: 0 0 50%;
+  
+}
+
+.form-fream {
+ 
+  height: 650px;
+  display: flex;
+  align-items: center;
+}
+
+.form-area {
+  
+  background: white;
+  padding: 24px;
+  border-radius: 5px;
+}
+.form-area h2 {
+  width: 400px;
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.main-input {
+  border: 0.5px solid lightgray;
+  height: 30px;
+  width: 400px;
+  margin-bottom: 10px;
+}
+
+::placeholder {
+  padding: 5px 0px 5px 10px;
+}
+
+.main-btn {
+  width: 100%;
+  padding: 5px 0px;
+  font-size: 15px;
+  background-color: dodgerblue;
+  border: 0.5px solid steelblue;
+  border-radius: 5px;
+  color: white;
+}
+
+// area-index-wrapper
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.area-index-wrapper {
+  margin: 3em;
+}
+
+.area-index-wrapper h2 {
+  font-size: 24px;
+  padding: 0 90px;
+  margin: 35px 0;
+  font-weight: bold;
+}
+
+.areas {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.area {
+  flex: 0 0 25%;
+  max-width: 25%;
+  text-align: center;
+  position: center;
+  
+}
+
+.area img {
+  width: 60%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.top-wrapper {
+  background-image: url("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 650px;
+}
+
+.main-search {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.form-fream {
+  height: 650px;
+  display: flex;
+  align-items: center;
+}
+
+.form-area {
+  background: white;
+  padding: 24px;
+  border-radius: 5px;
+}
+.form-area h2 {
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.main-input {
+  border: 0.5px solid lightgray;
+  height: 30px;
+  width: 400px;
+  margin-bottom: 10px;
+}
+
+::placeholder {
+  padding: 5px 0px 5px 10px;
+}
+
+.main-btn {
+  width: 100%;
+  padding: 5px 0px;
+  font-size: 15px;
+  background-color: dodgerblue;
+  border: 0.5px solid steelblue;
+  border-radius: 5px;
+  color: white;
+}
+
+// area-index-wrapper
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.area-index-wrapper {
+  margin: 3em;
+}
+
+.area-index-wrapper h2 {
+  font-size: 24px;
+  padding: 0 90px;
+  margin: 35px 0;
+  font-weight: bold;
+}
+
+.areas {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.area {
+  flex: 0 0 25%;
+  max-width: 25%;
+  text-align: center;
+  position: relative;
+  // padding-right: 30px;
+  // padding-left: 30px;
+}
+
+.area img {
+  width: 60%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.area span {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-weight: bold;
+  z-index: 1;
+  margin: auto;
+  text-align: center;
+  font-size: 24px;
+}
+
+

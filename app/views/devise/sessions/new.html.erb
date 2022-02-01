@@ -1,49 +1,42 @@
-<section class="hero is-info">
-  <div class="hero-body">
-    <div class="container">
+<div class="container device">
+  <div class="device_frame">
       <h1 class="title">
       ログイン
       </h1>
-    </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-5">
-        
-       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-         <%= f.label :email %><br />
-         　<p class="control has-icons-left">
-         　　<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-         　</p>
-        </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <p class="control has-icons-left">
-      　<%= f.label :remember_me %>
-      </p>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-  </div>
-
-<%= render "devise/shared/links" %>
-
+      <table>
+        <tr>
+          <th><%= f.label :email, "必須", class: "required" %></th>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "メールアドレス" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :password, "必須", class: "required" %></th>
+          <td><%= f.password_field :password, autocomplete: "current-password", :placeholder => "パスワード" %></td>
+        </tr>
+      </table>
+      <div>
+        <ul>
+          <li><%= f.submit "ログイン" %></li>
+          <li><%= link_to "新しいアカウントを作成", "/users/sign_up" %></li>
+        </ul>
       </div>
-    </div>
+      <% end %>
+     
+   </div>
   </div>
-</section>
+
+ 
+
+        
+   
+    
+    
+ 
+     
+
+       
+
+   
+

@@ -1,0 +1,27 @@
+<div class="complete">
+  <table border="1">
+   <thead>
+    <tr>
+      <th>予約した部屋</th>
+      <th>部屋料金</th>
+      <th>利用人数</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>合計料金</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+      <td><%= @room.room_name %></td>
+      <td><%= @room.room_price %></td>
+      <td><%= @resarvation.num_people %></td>
+      <td><%= @resarvation.start_date.to_s(:datetime_jp) %></td>
+      <td><%= @resarvation.end_date.to_s(:datetime_jp) %></td>
+      <td><%= @resarvation.total_price %></td>
+    </tr>
+   </tbody> 
+  </table>
+
+    <%= hidden_field_tag :id, @room.id %>
+
+</div>
