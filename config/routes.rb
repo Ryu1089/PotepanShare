@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
- 
+  get 'home/index'
+  get 'users/index'
+
  resources :rooms do
     collection do
       get 'search'
     end
-  　resources :resarvations
+  
   end
   
  devise_for :users
@@ -12,4 +14,9 @@ Rails.application.routes.draw do
  root to: "home#index"
  resources :rooms
  resources :users
+ resources :resarvations
+ 
+ get 'rooms/show'
+ post 'resarvations/new'
+ post 'resarvations/create'
 end

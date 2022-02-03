@@ -6,9 +6,8 @@ class ResarvationsController < ApplicationController
   end
   
   def new
-    @resarvation = Resarvation.new(resarvation_params)
-    @room = Room.find(params[:id])
-    @reservation.room_id = @room.id
+    @resarvation = Resarvation.new( @attr)
+    @room = Room.find(params[:room_id])
     if @resarvation.invalid?
       render "rooms/show"
     else
@@ -26,8 +25,21 @@ class ResarvationsController < ApplicationController
    
   end
    
-  def resarvation_params
-    params.require(:resarvation).permit(:start, :end, :people)
+  def update
+  
     
   end
+  
+  
+  private
+
+ def resarvation_params
+
+  @attr = params.require('resarvation').permit(:start, :end, :people,:room_id, :resarvation_id)
+
+ end
+  
+  
+  
+ 
 end

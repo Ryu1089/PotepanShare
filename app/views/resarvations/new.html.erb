@@ -2,20 +2,41 @@
   <h2>予約内容確認</h2>
   <%=form_with model:@resarvation do |f| %>
   
-  
-    <%= f.label :start, "開始日" %>
-    <%= f.text_field :start, :readoonly => true %>
-    <br>
-    <%= f.label :end, "終了日" %>
-    <%= f.text_field :end, :readonly => true %>
-    <br>
-    <p>人数：<%= f.number_field :people, :readonly => true %>名</p> 
-    <p>合計料金：<%= f.number_field :total_price, :readonly => true %>円</p>
-    
-    <p>上記内容でよろしければ「予約を確定」を押して下さい</p>
-    <ul class="submit">
-      <li class="submit-btn"><%= f.submit "予約を確定" %></li>
-      <li><%= link_to "ルーム詳細に戻る", @room %></li>
-    </ul>
+
+<div class="container reservations-new">
+  <div class="confirm_box">
+    <h4 class="reservations_check">予約内容確認</h4>
+    <h5 class="room_price_icon">¥<%= @resarvation.price %>/日</h5>
+    <div class="confirm_field">
+      <span>開始日</span>
+      <p class="confirm_contents"><%= @resarvation.start %></p>
+    </div>
+    <div class="confirm_field">
+      <span>終了日</span>
+      <p class="confirm_contents"><%= @resarvation.end %></p>
+    </div>
+    <div class="reservations_new_check_content">
+      <p>人数：<%= @resarvation.people %>人</p>
+    </div>
+    <div class="confirm_field">
+      <p>合計金額</p>
+      <p class="confirm_contents"><%= @resarvation.total_price %></p>
+    </div>
+    <div class="reservations_new_check_content">
   <% end %>
-</div>
+  
+  <%= form_with model:@resarvation do |f| %>
+    <%= form.hidden_field :price %>
+    <%= form.hidden_field :start %>
+    <%= form.hidden_field :end %>
+    <%= form.hidden_field :people %>
+    <%= form.hidden_field :total_price %>
+  <%= form.submit '予約を確定' %>
+  
+  <%= form_with model:@resarvation, url: {controller: 'rooms', action: 'show' }, local: true do |f| %>
+    <%= form.hidden_field :price %>
+    <%= form.hidden_field :start %>
+    <%= form.hidden_field :end %>
+    <%= form.hidden_field :people %>
+    <%= form.hidden_field :total_price %>
+  <%= form.submit '入力画面に戻る' %>

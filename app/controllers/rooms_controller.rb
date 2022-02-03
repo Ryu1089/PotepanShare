@@ -10,6 +10,8 @@ class RoomsController < ApplicationController
   
   def new
     @room = Room.new
+    
+  
   end
   
   def create
@@ -26,6 +28,8 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @resarvation = Resarvation.new
+  
+    
    
     
   end

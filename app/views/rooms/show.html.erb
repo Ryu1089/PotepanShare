@@ -11,8 +11,12 @@
             </div>
           
 
+
 </div>
- <%= form_with model: @resarvation, url: new_room_resarvation_path, local: true do |f| %> %>
+ <%= form_with model:@resarvation, url: {controller: 'resarvations', action: 'new' }, local: true do |f| %>
+ <%= f.hidden_field :room_id, value: @room.id %>
+ <%= f.hidden_field :resarvation_id, value: @resarvation.id %>
+ 
   <div class="form-group event__name">
     <%= f.label :start ,"開始日" %>
     <%= f.datetime_field :start, class: "form-control datetimepicker-input", id: "start_time", data: {toggle: "datetimepicker", target: "#start_time"} %>
