@@ -25,9 +25,10 @@
         </tr>
         
         <tr>
-          <th><%= f.label :address ,"ルーム画像" %></th>
-          
+          <th><%= f.label :image,"ルーム画像" %></th>
+          <th><%= f.attachment_field :image, class: "input" %></th>
         </tr>
+        
       </table>
  
       <div>

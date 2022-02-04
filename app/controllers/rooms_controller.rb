@@ -5,6 +5,9 @@ class RoomsController < ApplicationController
   def index
     @rooms = Room.all
    
+  
+    
+   
     
   end
   
@@ -15,10 +18,10 @@ class RoomsController < ApplicationController
   end
   
   def create
-    @room = Room.new(params.require(:room).permit(:name,:introduction,:price,:address))
-    if @room.save
+    @room = Room.new(room_params)
+    if @room.save(validate: false)
       redirect_to :rooms
-      flash[:notice] = "Room was successfully created."
+      flash[:notice] = "ルームを登録しました"
     else
       render"new"
       
@@ -27,8 +30,11 @@ class RoomsController < ApplicationController
   
   def show
     @room = Room.find(params[:id])
+    @user = User.find_by(id: current_user.id)
     @resarvation = Resarvation.new
   
+    
+   
     
    
     
@@ -57,4 +63,11 @@ class RoomsController < ApplicationController
     @q = Room.ransack(params[:q])
     
   end
+  
+  def room_params
+      params.require(:room).permit(:name, :introduction, :price, :address,:image).merge(user_id: current_user.id)
+  end
+  
+
+   
 end

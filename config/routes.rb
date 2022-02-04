@@ -19,4 +19,7 @@ Rails.application.routes.draw do
  get 'rooms/show'
  post 'resarvations/new'
  post 'resarvations/create'
+ 
+get 'users/profile' => 'users#profile'
+post 'users/profile' => 'users#update'
 end

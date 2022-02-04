@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   
   def index
-    @users = User.all
+    @user = current_user
+    
   
   end
   
@@ -17,9 +18,9 @@ class UsersController < ApplicationController
   
   def update
     @user = current_user
-    if @user.update(params.require(:user).permit(:username,:introduction))
+    if @user.update(params.require(:user).permit(:username,:introduction,:image))
       flash[:notice]="変更しました"
-      redirect_to @user
+      redirect_to :users
     else
       render"edit"
     end

@@ -19,8 +19,8 @@
     <tbody>
       <% @rooms.each do |room| %>
         <tr>
-          <td><%= attachment_image_tag @room, :image, fallback: "no-image.png", size:'100x100' %></td>
-          <td class="posts-name"><%= room.name %></td>
+          <td><%= attachment_image_tag room, :image,fallback: "no-image.png", size:'200x200' %></td>
+          <td class="posts-name"><%= link_to room.name, room_path(room) %></td>
           <td class="posts-content"><%= room.introduction %></td>
           <td class="price-icon">¥<%= room.price %></td>
           <td><%= room.created_at.to_s(:datetime_jp) %></td>

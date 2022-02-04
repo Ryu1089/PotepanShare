@@ -6,8 +6,9 @@ class ResarvationsController < ApplicationController
   end
   
   def new
-    @resarvation = Resarvation.new( @attr)
-    @room = Room.find(params[:room_id])
+    @resarvation = Resarvation.new(resarvation_params)
+    binding.pry
+    
     if @resarvation.invalid?
       render "rooms/show"
     else
@@ -34,8 +35,7 @@ class ResarvationsController < ApplicationController
   private
 
  def resarvation_params
-
-  @attr = params.require('resarvation').permit(:start, :end, :people,:room_id, :resarvation_id)
+  params.require(:resarvation).permit(:start, :room_id, :end, :people).merge(user_id: current_user.id)
 
  end
   
