@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
   
+  before_action :authenticate_user!
+  
   before_action :set_q, only: [:index, :search]
     
   def index
@@ -31,12 +33,6 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @user = User.find_by(id: current_user.id)
-    @resarvation = Resarvation.new
-  
-    
-   
-    
-   
     
   end
   

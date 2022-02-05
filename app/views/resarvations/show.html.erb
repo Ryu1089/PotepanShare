@@ -12,12 +12,12 @@
    </thead>
    <tbody>
     <tr>
-      <td><%= @room.room_name %></td>
-      <td><%= @room.room_price %></td>
-      <td><%= @resarvation.num_people %></td>
-      <td><%= @resarvation.start_date.to_s(:datetime_jp) %></td>
-      <td><%= @resarvation.end_date.to_s(:datetime_jp) %></td>
-      <td><%= @resarvation.total_price %></td>
+      <td><%= @room.name %></td>
+      <td><%= @room.price %></td>
+      <td><%= @resarvations.people %></td>
+      <td><%= @resarvations.start.to_s(:datetime_jp) %></td>
+      <td><%= @resarvations.end.to_s(:datetime_jp) %></td>
+      <td><%= @resarvations.total_price %></td>
     </tr>
    </tbody> 
   </table>

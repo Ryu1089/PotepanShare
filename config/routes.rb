@@ -17,9 +17,19 @@ Rails.application.routes.draw do
  resources :resarvations
  
  get 'rooms/show'
- post 'resarvations/new'
- post 'resarvations/create'
+ get 'rooms/index'
+ get 'rooms/new'
+ post 'rooms/new' => 'rooms#create'
+  
+  
+ get 'resarvations/new'
+ get 'resarvations/index'
+ post 'resarvations/new', to: 'resarvations#new'
+ post 'reservations/new', to:'reservations#create' 
+ patch '/resarvations', to: 'resarvations#create'
+ get 'resarvations/new', to: 'resarvations#update'
  
-get 'users/profile' => 'users#profile'
-post 'users/profile' => 'users#update'
+ 
+ get 'users/profile' => 'users#profile'
+ post 'users/profile' => 'users#update'
 end
