@@ -4,15 +4,18 @@ class ResarvationsController < ApplicationController
   
   def index
     @user = User.find(current_user.id)
-    @rooms = Room.all
-    @resarvations =  @user.resarvations 
+    @room = Room.all
+    @resarvations = Resarvation.all
+    
+   
+
   
   end
   
   def show
-    @resarvations = Resarvation.where(user_id: @user)
-    @room = Room.find_by(params[:room_id])
+    @resarvation = Resarvation.find(params[:id])
     @user = current_user.id
+   
     
     
   end
@@ -20,7 +23,8 @@ class ResarvationsController < ApplicationController
   def new
     @resarvation = Resarvation.new(resarvation_params)
     @room = Room.find(params[:room_id])
-   
+    @resarvation.room_id = @room.id
+
     if @resarvation.invalid?
       flash[:notice] = "項目全て入力してください"
       redirect_to "/rooms/#{params[:room_id]}"
@@ -29,7 +33,6 @@ class ResarvationsController < ApplicationController
       resarver = @resarvation.people
       days = (@resarvation.end.to_date - @resarvation.start.to_date).to_i
       @resarvation.total_price = (days * resarver * price)
-   
      
     end
     
@@ -37,28 +40,23 @@ class ResarvationsController < ApplicationController
   end
   
   def create
-    @resarvation = Resarvation.new(resarve_params)
     @user = current_user.id
-    @room = Room.find_by(params.require(:resarvation).permit(:room_id))
-    binding.pry
-    
+    @resarvation = Resarvation.new(resarve_params)
+    @room = Room.find(params[:resarvation][:room_id])
     
     if @resarvation.save
       flash[:notice] = "予約完了しました"
-      redirect_to  "/resarvations/:id"
+      redirect_to  @resarvation
     else
       
-      redirect_to  "/resarvations/:id"
+      redirect_to  resarvations_new_path
       flash[:notice] = "予約できませんでした"
     end
     
   end
   
   def destroy
-    @resarvations = Resarvation.find(params[:id])
-    @resarvations.destroy
-    flash[:notice] = "予約履歴を削除しました"
-    redirect_to :resarvations
+  
   end
    
   def update

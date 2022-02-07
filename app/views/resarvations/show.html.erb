@@ -2,8 +2,6 @@
   <table border="1">
    <thead>
     <tr>
-      <th>予約した部屋</th>
-      <th>部屋料金</th>
       <th>利用人数</th>
       <th>開始日</th>
       <th>終了日</th>
@@ -12,16 +10,14 @@
    </thead>
    <tbody>
     <tr>
-      <td><%= @room.name %></td>
-      <td><%= @room.price %></td>
-      <td><%= @resarvations.people %></td>
-      <td><%= @resarvations.start.to_s(:datetime_jp) %></td>
-      <td><%= @resarvations.end.to_s(:datetime_jp) %></td>
-      <td><%= @resarvations.total_price %></td>
+      <td><%= @resarvation.people %></td>
+      <td><%= @resarvation.start.to_s(:jp) %></td>
+      <td><%= @resarvation.end.to_s(:jp) %></td>
+      <td>¥<%= @resarvation.total_price %></td>
     </tr>
    </tbody> 
   </table>
 
-    <%= hidden_field_tag :id, @room.id %>
+   
 
 </div>

@@ -1,6 +1,8 @@
-<p><%= link_to "基本情報", :new_room %></p>
-<div class="room-view">
-<h1>ルーム情報登録</h1>
+
+        
+ 
+ <h1 class="title"><%= link_to "基本情報", :new_room %></h1>
+ <h3>ルーム登録</h3>
  
     <%= form_with model: @room do |f| %>
       <table>
@@ -20,22 +22,19 @@
         </tr>
  
         <tr>
-          <th><%= f.label :address ,"住所" %></th>
+          <th> <%= f.label :address ,"住所" %></th>
           <td><%= f.text_field :address, placeholder: "住所を入力" %></td>
         </tr>
         
         <tr>
-          <th><%= f.label :image,"ルーム画像" %></th>
-          <th><%= f.attachment_field :image, class: "input" %></th>
+          <th> <%= f.label :image,"ルーム画像" %></th> 
+          <td><%= f.attachment_field :image, class: "input" %></td>
         </tr>
         
+        <tr>
+          <td><%= f.submit "登録完了する", class:  "button is-success"%></td>
+        </tr>
       </table>
  
-      <div>
-        <ul>
-          <li><%= f.submit "登録完了する"%></li>
-        </ul>
-      </div>
     <% end %>
-  </div>
- </div>
+       

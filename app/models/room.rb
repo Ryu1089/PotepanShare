@@ -1,7 +1,7 @@
 class Room < ApplicationRecord
   
   belongs_to :user
-  belongs_to :resarvation
+  has_many :resarvations
   
  
   

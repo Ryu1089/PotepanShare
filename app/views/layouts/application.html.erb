@@ -37,7 +37,7 @@
             <input type="checkbox" id="label1"/>
             <ul class="hidden_show" >
               <li> <%= link_to "ルーム登録", new_room_path %></li>
-              <li><%= link_to "予約済みルーム一覧あとで実装", :resarvations %></li>
+              <li><%= link_to "予約済みルーム一覧", :resarvations %></li>
               <li><%= link_to "登録済みルーム一覧", :rooms%></li>
               <li><%= link_to "設定", "/users", id: current_user%></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "lbutton is-warning is-light" %></li>
@@ -60,11 +60,10 @@
       <% end %>
     </p>
     
-    <%= yield %>
+      <%= yield %>
     
-    <footer>
-      <p>© 2020 POTEPAN.INC.</p>
-    </footer>
+    
+    
   </body>
  </html>
 

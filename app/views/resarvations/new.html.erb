@@ -1,19 +1,15 @@
-  <section class="hero is-success">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          予約内容確認画面
-        </h1>
-      </div>
-    </div>
-  </section>
+  <h1 class="title">
+    予約内容確認画面
+  </h1>
+      
+
   
   
   <section class="section">
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-6">
-          <%= form_with model: @resarvation, local:true do |f| %>
+          <%= form_with model: @resarvation, url: {controller: 'resarvations', action: 'create' }, local:true do |f| %>
           <%= f.hidden_field :room_id, value: @room.id %>
           <%= f.hidden_field :resarvation_id, value: @resarvation.id %> 
           <div class="col-md-6">
@@ -36,11 +32,13 @@
                     <td><%= f.label :total_price, "合計金額" %></td>
                     <td><%= f.number_field  :total_price, :readonly => true %><span>円</span></td>
                   </tr>
+                  
+                  <td>
+                    <%= f.submit "この日程で予約する", class:  "button is-success"  %> 
+                  </td>
                </tbody>
             </table>
           </div>
-        
-          <%= f.submit "この日程で予約する", class:  "button is-success"   %>        
           <% end %>
         </div>
       </div>

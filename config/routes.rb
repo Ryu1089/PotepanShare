@@ -9,9 +9,14 @@ Rails.application.routes.draw do
   
   end
   
+  resources :resarvations do
+    resources :rooms
+  end
+  
  devise_for :users
  
  root to: "home#index"
+ 
  resources :rooms
  resources :users
  resources :resarvations
@@ -23,11 +28,12 @@ Rails.application.routes.draw do
   
   
  get 'resarvations/new'
- get 'resarvations/index'
  post 'resarvations/new', to: 'resarvations#new'
- post 'reservations/new', to:'reservations#create' 
+ post 'reservations/new', to: 'reservations#create' 
  patch '/resarvations', to: 'resarvations#create'
  get 'resarvations/new', to: 'resarvations#update'
+ post 'resarvations/:id', to:   'rearvation#create'
+ get 'resarvations/index', to:  'resarvations#show'
  
  
  get 'users/profile' => 'users#profile'

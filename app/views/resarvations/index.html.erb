@@ -1,9 +1,9 @@
 <% if flash[:notice] %>
-  <p class="notice"><%= flash[:notice] %></p>
+  <p class="notice"></p>
 <% end %>
 
 <div class="container-fiuld room-posts">
-  <h4 class="pb-4">予約済みルーム一覧</h4>
+  <h1 class="">予約済みルーム一覧</h1>
   <table>
     <thead>
       <tr align="center">
@@ -18,19 +18,18 @@
     </thead>
     <tbody>
       <% @resarvations.each do |resarvation| %>
-      <% @rooms.each do |room| %>
+      
         <tr>
           <td><%= attachment_image_tag resarvation.room, :image,fallback: "no-image.png", size:'200x200' %></td>
-          <td class="posts-content"><%= room.name %></td>
-          <td class="price-icon"><%= room.introduction %></td>
+          <td class="posts-content"><%= link_to resarvation.room.name, resarvation %></td>
+          <td class="price-icon"><%= resarvation.room.introduction %></td>
           <td class="price-icon"><%= resarvation.people %></td>
-          <td class="price-icon"><%= resarvation.start %></td>
-          <td class="price-icon"><%= resarvation.end %></td>
-          <td class="price-icon"><%= resarvation.total_price %></td>
-          <td class="price-icon"><%= link_to "削除",resarvation,method: :delete,date:{confirm: "本当に削除しますか"} %></td>
+          <td class="price-icon"><%= resarvation.start.to_s(:jp) %></td>
+          <td class="price-icon"><%= resarvation.end.to_s(:jp) %></td>
+          <td class="price-icon">¥<%= resarvation.total_price %></td>
         </tr>
     </tbody>
-    <% end %>
+    
     <% end %>
   </table>
 </div>
