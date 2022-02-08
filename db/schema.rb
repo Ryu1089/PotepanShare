@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 2022_02_05_181013) do
     t.text "introduction"
     t.bigint "price"
     t.date "dating"
+    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "address"
     t.integer "user_id"
     t.string "image_id"
     t.integer "room_id"

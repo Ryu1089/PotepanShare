@@ -5,6 +5,7 @@ class ResarvationsController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @room = Room.all
+    @resarvations = current_user.resarvations
     @resarvations = Resarvation.all
     
    
@@ -43,6 +44,7 @@ class ResarvationsController < ApplicationController
     @user = current_user.id
     @resarvation = Resarvation.new(resarve_params)
     @room = Room.find(params[:resarvation][:room_id])
+    binding.pry
     
     if @resarvation.save
       flash[:notice] = "予約完了しました"
