@@ -1,0 +1,35 @@
+<% if flash[:notice] %>
+  <p class="notice"></p>
+<% end %>
+
+<div class="container-fiuld room-posts">
+  <h1 class="">予約済みルーム一覧</h1>
+  <table>
+    <thead>
+      <tr align="center">
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>利用人数</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>合計金額</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resarvations.each do |resarvation| %>
+      
+        <tr>
+          <td><%= attachment_image_tag resarvation.room, :image,fallback: "no-image.png", size:'200x200' %></td>
+          <td class="posts-content"><%= link_to resarvation.room.name, resarvation %></td>
+          <td class="price-icon"><%= resarvation.room.introduction %></td>
+          <td class="price-icon"><%= resarvation.people %></td>
+          <td class="price-icon"><%= resarvation.start.to_s(:jp) %></td>
+          <td class="price-icon"><%= resarvation.end.to_s(:jp) %></td>
+          <td class="price-icon">¥<%= resarvation.total_price %></td>
+        </tr>
+    </tbody>
+    
+    <% end %>
+  </table>
+</div>

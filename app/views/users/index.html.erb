@@ -1,2 +1,44 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+
+
+
+<div class="container device">
+  
+  <ul class="side-link">
+   <div><%= link_to "アカウント設定", edit_user_registration_path %></div>
+   <div><%= link_to "プロフィール設定", '/users/:id/edit' %><div>
+  </ul>
+  
+  <div class="device_frame">
+    
+      <h1 class="title">
+      アカウント
+      </h1>
+
+      <table>
+        <tr>
+          <th>名前</th>
+        　<td><%=  @user.username %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th>パスワード</th>
+          <td>**********</td>
+        </tr>
+      </table>
+      <div class="account-edit">
+      <ul>
+        <li><%= link_to "編集する" , edit_user_registration_path %></li>
+        <li><%= link_to "ホームへ戻る" , root_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+

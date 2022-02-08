@@ -1,0 +1,40 @@
+
+        
+ 
+ <h1 class="title"><%= link_to "基本情報", :new_room %></h1>
+ <h3>ルーム登録</h3>
+ 
+    <%= form_with model: @room do |f| %>
+      <table>
+        <tr>
+          <th><%= f.label :name ,"ルーム名" %></th>
+          <td><%= f.text_field :name, placeholder: "ルーム名を入力" %></td>
+        </tr>
+ 
+        <tr>
+          <th><%= f.label :introduction ,"ルーム紹介" %></th>
+          <td><%= f.text_area :introduction, placeholder: "ルーム紹介を入力" %></td>
+        </tr>
+ 
+        <tr>
+          <th><%= f.label :price ,"料金" %></th>
+          <td><%= f.number_field :price, placeholder: "料金を入力" %></td>
+        </tr>
+ 
+        <tr>
+          <th> <%= f.label :address ,"住所" %></th>
+          <td><%= f.text_field :address, placeholder: "住所を入力" %></td>
+        </tr>
+        
+        <tr>
+          <th> <%= f.label :image,"ルーム画像" %></th> 
+          <td><%= f.attachment_field :image, class: "input" %></td>
+        </tr>
+        
+        <tr>
+          <td><%= f.submit "登録完了する", class:  "button is-success"%></td>
+        </tr>
+      </table>
+ 
+    <% end %>
+       

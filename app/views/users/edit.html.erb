@@ -1,0 +1,42 @@
+
+<div class="container device">
+  
+  <ul class="side-link">
+   <div><%= link_to "アカウント設定", edit_user_registration_path %></div>
+   <div><%= link_to "プロフィール設定", '/users/:id/edit' %><div>
+  </ul>
+  
+  <div class="device_frame">
+    
+      <h1 class="title">
+      アカウント
+      </h1>
+      
+  <%= form_with model:@user do |f| %>
+
+      <table>
+        <tr>
+          <th><%= attachment_image_tag @user, :image, fallback: "no-image.png", size:'200x200' %></th>
+        </tr>
+        <tr>
+          <th>アイコン画像</th>
+        　<td><%= f.attachment_field :image %></td>
+        </tr>
+        <tr>
+          <th>名前</th>
+          <td><%= f.text_field :username %></td>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+          <td><%= f.text_field :introduction %></td>
+        </tr>
+      </table>
+      <div class="account-edit">
+      <ul>
+        <li><%= f.submit "更新" %></li>
+      </ul>
+    </div>
+    <% end %>
+  
+     
+   </div>

@@ -1,0 +1,23 @@
+<div class="complete">
+  <table border="1">
+   <thead>
+    <tr>
+      <th>利用人数</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>合計料金</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+      <td><%= @resarvation.people %></td>
+      <td><%= @resarvation.start.to_s(:jp) %></td>
+      <td><%= @resarvation.end.to_s(:jp) %></td>
+      <td>¥<%= @resarvation.total_price %></td>
+    </tr>
+   </tbody> 
+  </table>
+
+   
+
+</div>

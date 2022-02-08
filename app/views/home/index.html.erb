@@ -1,2 +1,48 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="top-wrapper">
+  <div class="main-search">
+    <div class="form-fream">
+      <div class="form-area">
+        <h2>Potepan Shareでまだ体験したことのない旅をしよう</h2>
+        <div class="search-field">
+          <p>エリア</p>
+            <%= search_form_for @q_header, url: search_rooms_path do |f| %>
+            <%= f.search_field :name_cont, placeholder: "エリア" %>
+            <%= f.submit "エリア検索" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="area-index-wrapper">
+      <h2>おすすめのエリア</h2>
+      <div class="areas">
+        <div class="area">
+          
+            <a href="https://50c4bc870f064b409fe95b6a1ad84d06.vfs.cloud9.us-east-1.amazonaws.com/rooms/search?q%5Baddress_cont%5D=%E6%9D%B1%E4%BA%AC&commit=%E3%82%A8%E3%83%AA%E3%82%A2%E6%A4%9C%E7%B4%A2"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg" alt="tokyo"></a>
+            <span>東京</span>
+          
+        </div>
+        <div class="area">
+            <a href="https://50c4bc870f064b409fe95b6a1ad84d06.vfs.cloud9.us-east-1.amazonaws.com/rooms/search?q%5Baddress_cont%5D=%E5%A4%A7%E9%98%AA&commit=%E3%82%A8%E3%83%AA%E3%82%A2%E6%A4%9C%E7%B4%A2"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg" alt="osaka"></a>
+            <span>大阪</span>
+          
+        </div>
+        <div class="area">
+          
+            <a href="https://50c4bc870f064b409fe95b6a1ad84d06.vfs.cloud9.us-east-1.amazonaws.com/rooms/search?q%5Baddress_cont%5D=%E4%BA%AC%E9%83%BD&commit=%E3%82%A8%E3%83%AA%E3%82%A2%E6%A4%9C%E7%B4%A2"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg" alt="kyoto"></a>
+            <span>京都</span>
+          
+        </div>
+        <div class="area">
+          <%= link_to "/search?search_area=札幌&commit=探す" do %>
+            <a href="https://50c4bc870f064b409fe95b6a1ad84d06.vfs.cloud9.us-east-1.amazonaws.com/rooms/search?q%5Baddress_cont%5D=%E6%9C%AD%E5%B9%8C&commit=%E3%82%A8%E3%83%AA%E3%82%A2%E6%A4%9C%E7%B4%A2"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg" alt="sapporo"></a>
+            <span>札幌</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

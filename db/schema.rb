@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_21_082931) do
+ActiveRecord::Schema.define(version: 2022_02_05_181013) do
+
+  create_table "resarvations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start"
+    t.datetime "end"
+    t.integer "people"
+    t.integer "resarvation_id"
+    t.integer "total_price"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.text "introduction"
+    t.bigint "price"
+    t.date "dating"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.string "image_id"
+    t.integer "room_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,6 +48,8 @@ ActiveRecord::Schema.define(version: 2022_01_21_082931) do
     t.string "profile_image_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_id"
+    t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
